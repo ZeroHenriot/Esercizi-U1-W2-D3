@@ -150,19 +150,19 @@ const eyeColor = {
 for (let i = 0; i < starWarsCharacters.length; i++) {
   switch (starWarsCharacters[i].eye_color) {
     case 'blue':
-      eyeColor.blue.push(starWarsCharacters[i].eye_color)
+      eyeColor.blue.push(starWarsCharacters[i])
       break
     case 'yellow':
-      eyeColor.yellow.push(starWarsCharacters[i].eye_color)
+      eyeColor.yellow.push(starWarsCharacters[i])
       break
     case 'brown':
-      eyeColor.brown.push(starWarsCharacters[i].eye_color)
+      eyeColor.brown.push(starWarsCharacters[i])
       break
     case 'red':
-      eyeColor.red.push(starWarsCharacters[i].eye_color)
+      eyeColor.red.push(starWarsCharacters[i])
       break
     case 'blue-gray':
-      eyeColor['blue-gray'].push(starWarsCharacters[i].eye_color)
+      eyeColor['blue-gray'].push(starWarsCharacters[i])
       break
   }
 }
@@ -174,9 +174,15 @@ console.log(eyeColor)
 */
 let crewMass = 0
 
-for (let i = 0; i < starWarsCharacters.length; i++) {
+let i = 0
+
+while (i < starWarsCharacters.length) {
   crewMass += starWarsCharacters[i].mass
+  i++
 }
+// for (let i = 0; i < starWarsCharacters.length; i++) {
+// crewMass += starWarsCharacters[i].mass
+// }
 
 console.log(crewMass)
 
@@ -219,6 +225,30 @@ console.log(starWarsCharacters)
   Una volta fatto crea un console.log per controllare la proprietà length di "characters" prima e dopo l'operazione.
 */
 
+for (let i = 0; i < femaleCharacters.length; i++) {
+  for (let j = 0; j < femaleCharacters.length; j++) {
+    if (femaleCharacters[i].name === characters[j]) {
+      characters.splice(j, 1)
+    }
+  }
+}
+
+console.log(characters)
+
 /* --EXTRA-- ESERCIZIO 10
   Crea una funzionalità che selezioni un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo (a tuo piacimento).
 */
+
+const validIndex = Math.floor(Math.random() * 10)
+console.log(validIndex)
+
+const randomCharacter = starWarsCharacters[validIndex]
+
+console.log(
+  'Mi chiamo ' +
+    randomCharacter.name +
+    'sono alto/a ' +
+    randomCharacter.height +
+    'e peso ' +
+    randomCharacter.mass
+)
